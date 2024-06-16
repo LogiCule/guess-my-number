@@ -6,7 +6,6 @@ function updateInnerHTML(selectorName, text) {
 
 function randomizeGuess() {
   toBeGuessed = Math.floor(Math.random() * 20) + 1;
-  console.log({ toBeGuessed });
 }
 
 function updateHS(currScore) {
