@@ -27,6 +27,8 @@ function updateHS(currScore) {
 
 function resetGame() {
   randomizeGuess();
+  updateInnerHTML('.message', 'Start guessing...');
+  didWin = false;
   currentScore = 20;
   updateInnerHTML(
     '.label-score',
@@ -38,15 +40,20 @@ function resetGame() {
 function checkGuess() {
   const currVal = document.querySelector('.guess').value;
 
-  if (!Boolean(currVal)) return;
+  if (!Boolean(currVal) || didWin) return;
   if (currVal != toBeGuessed) {
     currentScore -= 1;
     updateInnerHTML(
       '.label-score',
       `💯 Score: <span class="score">${currentScore}</span>`
     );
+    if (currVal < toBeGuessed)
+      updateInnerHTML('.message', '❌ Wrong! Too low.');
+    else updateInnerHTML('.message', '❌ Wrong! Too high.');
   } else {
     //winning logic
+    updateInnerHTML('.message', '🎉 Correct! You got it.');
+    didWin = true;
     updateHS(currentScore);
   }
   document.querySelector('.guess').value = null;
@@ -55,5 +62,6 @@ function checkGuess() {
 // updateInnerHTML('.message', 'Wrong! Guess Again.');
 let toBeGuessed = 0;
 let currentScore = 20;
+let didWin = false;
 resetGame();
 updateHS();
