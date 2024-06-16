@@ -46,9 +46,12 @@ function checkGuess() {
       '.label-score',
       `💯 Score: <span class="score">${currentScore}</span>`
     );
-    if (currVal < toBeGuessed)
-      updateInnerHTML('.message', '❌ Wrong! Too low.');
-    else updateInnerHTML('.message', '❌ Wrong! Too high.');
+    const diff = Math.abs(toBeGuessed - currVal);
+    if (currVal < toBeGuessed) {
+      updateInnerHTML('.message', `❌ Wrong! ${diff > 3 ? 'too ' : ''} low.`);
+    } else {
+      updateInnerHTML('.message', `❌ Wrong! ${diff > 3 ? 'too ' : ''} high.`);
+    }
   } else {
     //winning logic
     updateInnerHTML('.message', '🎉 Correct! You got it.');
