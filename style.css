@@ -26,18 +26,23 @@ header {
 }
 
 main {
-  height: 65vh;
+  margin-top: 5vh;
+  height: 60vh;
   color: #eee;
   display: grid;
   align-items: center;
-  justify-content: space-around;
-  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  grid-template-columns: 1fr;
 }
 
 .left {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.hide {
+  display: none;
 }
 
 .right {

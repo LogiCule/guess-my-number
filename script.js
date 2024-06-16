@@ -26,7 +26,9 @@ function updateHS(currScore) {
 
 function resetGame() {
   randomizeGuess();
+  document.querySelector('.left').classList.remove('hide');
   updateInnerHTML('.message', 'Start guessing...');
+  updateInnerHTML('.number', '?');
   didWin = false;
   currentScore = 20;
   updateInnerHTML(
@@ -34,6 +36,7 @@ function resetGame() {
     `💯 Score: <span class="score">${currentScore}</span>`
   );
   document.querySelector('.guess').value = null;
+  document.querySelector('body').style.backgroundColor = '#222';
 }
 
 function checkGuess() {
@@ -54,7 +57,11 @@ function checkGuess() {
     }
   } else {
     //winning logic
+    document.querySelector('body').style.backgroundColor = '#60b347';
     updateInnerHTML('.message', '🎉 Correct! You got it.');
+    updateInnerHTML('.number', toBeGuessed);
+    document.querySelector('.left').classList.add('hide');
+
     didWin = true;
     updateHS(currentScore);
   }
