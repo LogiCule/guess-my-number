@@ -74,3 +74,9 @@ let currentScore = 20;
 let didWin = false;
 resetGame();
 updateHS();
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') {
+    checkGuess();
+  }
+});
