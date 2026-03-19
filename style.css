@@ -26,13 +26,13 @@ header {
 }
 
 main {
-  margin-top: 5vh;
-  height: 60vh;
+  margin-top: 8vh;
+  min-height: 60vh;
   color: #eee;
   display: grid;
   align-items: center;
-  justify-content: space-between;
-  grid-template-columns: 1fr;
+  justify-content: space-around;
+  grid-template-columns: 1fr 1fr;
 }
 
 .left {
@@ -103,6 +103,7 @@ h1 {
   text-align: center;
   display: block;
   margin-bottom: 3rem;
+  margin-top: 5rem;
 }
 
 .btn {
@@ -136,6 +137,12 @@ h1 {
   h1 {
     font-size: 3.5rem;
   }
+
+  main {
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 5rem;
+  }
 }
 
 @media (max-width: 28em) {
@@ -145,9 +152,5 @@ h1 {
 
   .between {
     font-size: 1.5rem;
-  }
-
-  main {
-    grid-template-columns: 1fr;
   }
 }
